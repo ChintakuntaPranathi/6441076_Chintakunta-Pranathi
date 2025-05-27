@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Exercise 10 - Debugging</title>
+</head>
+<body>
+  <h2>Exercise 10 - Open Chrome DevTools</h2>
+  <button onclick="debugTest()">Test Console Log</button>
+  <p style="color:red;" id="debug">Inspect me in DevTools!</p>
+
+  <script>
+    function debugTest() {
+      console.log("Button clicked!");
+      let testVar = 123;
+      debugger; // You can place a breakpoint here in DevTools
+    }
+  </script>
+</body>
+</html>

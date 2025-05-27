@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Exercise 5 - Event Registration</title>
+  <style>
+    form {
+      padding: 20px;
+      border: 2px solid #000;
+    }
+  </style>
+</head>
+<body>
+  <h2>Exercise 5 - Register for an Event</h2>
+  <form onsubmit="document.getElementById('confirmation').value='Thank you for registering!'; return false;">
+    Name: <input type="text" placeholder="Your Name" required autofocus><br><br>
+    Email: <input type="email" placeholder="Your Email" required><br><br>
+    Date: <input type="date" required><br><br>
+    Event Type: 
+    <select required>
+      <option value="">Choose</option>
+      <option value="music">Music</option>
+      <option value="art">Art</option>
+    </select><br><br>
+    Message:<br>
+    <textarea placeholder="Your Message" required></textarea><br><br>
+    <button type="submit">Submit</button><br><br>
+    <output id="confirmation"></output>
+  </form>
+</body>
+</html>

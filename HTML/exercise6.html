@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Event Feedback</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background-color: #eef5ff;
+    }
+
+    form {
+      background: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      max-width: 600px;
+      margin: auto;
+      box-shadow: 0 0 10px #ccc;
+    }
+
+    label {
+      display: block;
+      margin-top: 15px;
+    }
+
+    input, textarea, select {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+      border-radius: 4px;
+      border: 1px solid #aaa;
+    }
+
+    button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      background-color: #004080;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    #charCount {
+      font-size: 0.9em;
+      color: #333;
+      margin-top: 5px;
+    }
+
+    #enlargeImg {
+      width: 200px;
+      margin-top: 20px;
+      transition: 0.3s;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <h2>Event Feedback</h2>
+
+  <form>
+    <label for="phone">Phone Number:</label>
+    <input type="text" id="phone" onblur="validatePhone()" placeholder="Enter 10-digit phone number">
+    <div id="phoneError" style="color:red;"></div>
+
+    <label for="eventFee">Select Event:</label>
+    <select id="eventFee" onchange="displayFee()">
+      <option value="">Choose</option>
+      <option value="20">Music Night - $20</option>
+      <option value="10">Charity Run - $10</option>
+      <option value="15">Food Festival - $15</option>
+    </select>
+    <div id="feeText" style="margin-top: 5px;"></div>
+
+    <label for="feedback">Your Feedback:</label>
+    <textarea id="feedback" onkeyup="countChars()" placeholder="Share your thoughts..."></textarea>
+    <div id="charCount">Characters: 0</div>
+
+    <img id="enlargeImg" src="images/event4.jpg" alt="Event Image" title="Double-click to enlarge" ondblclick="enlargeImage()">
+
+    <button type="button" onclick="showThanks()">Submit Feedback</button>
+    <output id="thanksMsg" style="display:block; margin-top:10px;"></output>
+  </form>
+
+  <script>
+    function validatePhone() {
+      const phone = document.getElementById("phone").value;
+      const error = document.getElementById("phoneError");
+      const valid = /^\d{10}$/;
+      error.textContent = valid.test(phone) ? "" : "Invalid phone number!";
+    }
+
+    function displayFee() {
+      const select = document.getElementById("eventFee");
+      const fee = select.options[select.selectedIndex].text;
+      document.getElementById("feeText").textContent = "Selected Fee: " + fee;
+    }
+
+    function countChars() {
+      const text = document.getElementById("feedback").value;
+      document.getElementById("charCount").textContent = "Characters: " + text.length;
+    }
+
+    function enlargeImage() {
+      const img = document.getElementById("enlargeImg");
+      img.style.width = img.style.width === "400px" ? "200px" : "400px";
+    }
+
+    function showThanks() {
+      document.getElementById("thanksMsg").textContent = "Thank you for your feedback!";
+    }
+  </script>
+</body>
+</html>

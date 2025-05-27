@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Event Promo Video</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+      background-color: #f0f0f0;
+    }
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+    .video-container {
+      text-align: center;
+      margin-top: 30px;
+    }
+    video {
+      max-width: 90%;
+      height: auto;
+      border: 4px solid #0066cc;
+      border-radius: 10px;
+    }
+    #videoMessage {
+      margin-top: 15px;
+      color: green;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Welcome to the Community Event Video</h1>
+
+  <div class="video-container">
+    <video id="eventVideo" controls>
+      <source src="videos/event-promo.mp4" type="video/mp4" />
+      Your browser does not support the video tag.
+    </video>
+    <div id="videoMessage"></div>
+  </div>
+
+  <script>
+    // Show message when video is ready to play
+    document.getElementById("eventVideo").oncanplay = function () {
+      document.getElementById("videoMessage").textContent = "Video ready to play!";
+    };
+
+    // Warn users before leaving if the video hasn't been watched
+    window.onbeforeunload = function () {
+      return "Are you sure you want to leave? Your session may be lost.";
+    };
+  </script>
+
+</body>
+</html>

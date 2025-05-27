@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Exercise 8 - Preferences</title>
+</head>
+<body>
+  <h2>Exercise 8 - Preferred Event Type</h2>
+  <select id="eventType" onchange="savePreference()">
+    <option value="">Choose an event</option>
+    <option value="music">Music</option>
+    <option value="art">Art</option>
+  </select>
+  <br><br>
+  <button onclick="clearPreferences()">Clear Preferences</button>
+
+  <script>
+    const select = document.getElementById("eventType");
+    function savePreference() {
+      localStorage.setItem("eventType", select.value);
+    }
+    function clearPreferences() {
+      localStorage.clear();
+      sessionStorage.clear();
+      select.value = "";
+    }
+    window.onload = () => {
+      const saved = localStorage.getItem("eventType");
+      if (saved) select.value = saved;
+    };
+  </script>
+</body>
+</html>

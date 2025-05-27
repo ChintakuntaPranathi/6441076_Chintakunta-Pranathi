@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Community Event Portal</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background-color: #f0f8ff;
+    }
+
+    /* Navigation */
+    nav {
+      background-color: #004080;
+      padding: 10px;
+      text-align: center;
+    }
+
+    nav a {
+      color: white;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    /* Welcome Banner */
+    #welcomeBanner {
+      background-color: #cce6ff;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .highlight {
+      background-color: yellow;
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+
+    /* Gallery */
+    .gallery-img {
+      border: 3px solid #888;
+      width: 100%;
+      height: auto;
+    }
+
+    table {
+      width: 80%;
+      margin: 20px auto;
+      border-spacing: 10px;
+    }
+
+    caption {
+      caption-side: top;
+      font-weight: bold;
+      font-size: 1.2em;
+    }
+
+    /* Form Styling */
+    form {
+      width: 80%;
+      margin: 30px auto;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px gray;
+    }
+
+    label {
+      display: block;
+      margin: 10px 0 5px;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      padding: 8px;
+      border: 1px solid #aaa;
+      border-radius: 5px;
+    }
+
+    button {
+      margin-top: 15px;
+      padding: 10px 20px;
+      background-color: #004080;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .charCount, #feeDisplay, #phoneError, #confirmation {
+      font-size: 0.9em;
+      margin-top: 5px;
+    }
+
+    #eventImage {
+      width: 200px;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      display: block;
+      margin: 20px auto;
+    }
+
+    footer {
+      background-color: #004080;
+      color: white;
+      text-align: center;
+      padding: 10px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Navigation -->
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#events">Events</a>
+    <a href="#contact">Contact</a>
+    <a href="help.html" target="_blank">Help</a>
+    <a href="feedback.html" target="_blank">Feedback</a>
+  </nav>
+
+  <!-- Welcome Banner -->
+  <section id="home">
+    <div id="welcomeBanner">
+      <h1>Welcome to the Community Event Portal</h1>
+      <p>Thank you for joining! <span style="color: red; font-weight: bold;">Early Bird Offer!</span></p>
+      <p class="highlight">Stay updated with the latest events in your community.</p>
+    </div>
+  </section>
+
+  <!-- Event Section -->
+  <section id="events">
+    <h2 style="text-align:center;">Upcoming Events</h2>
+
+    <!-- Gallery -->
+    <table>
+      <caption>Memories from Past Events</caption>
+      <tr>
+        <td><img src="images/event1.jpg" alt="Music Fest" title="Music Fest" class="gallery-img"></td>
+        <td><img src="images/event2.jpg" alt="Food Drive" title="Food Drive" class="gallery-img"></td>
+        <td><img src="images/event3.jpg" alt="Charity Run" title="Charity Run" class="gallery-img"></td>
+      </tr>
+      <tr>
+        <td><img src="images/event4.jpg" alt="Art Fair" title="Art Fair" class="gallery-img"></td>
+        <td><img src="images/event5.jpg" alt="Clean-up Drive" title="Clean-up Drive" class="gallery-img"></td>
+        <td><img src="images/event6.jpg" alt="Book Swap" title="Book Swap" class="gallery-img"></td>
+      </tr>
+    </table>
+  </section>
+  <!-- Video Promo Section -->
+<section id="videoPromo">
+  <h2 style="text-align:center;">Event Promo Video</h2>
+  <div style="text-align:center;">
+    <video id="eventVideo" width="500" controls style="border: 4px solid #0066cc; border-radius: 10px;">
+      <source src="videos/event-promo.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+    <div id="videoMessage" style="color: green; font-weight: bold; margin-top: 10px;"></div>
+  </div>
+</section>
+
+  <!-- Contact/Registration Section -->
+  <section id="contact">
+    <form id="registerForm">
+      <h2>Register for an Event</h2>
+
+      <label for="name">Name:</label>
+      <input type="text" id="name" placeholder="Your full name" required autofocus>
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" placeholder="Your email" required>
+
+      <label for="date">Event Date:</label>
+      <input type="date" id="date" required>
+
+      <label for="eventType">Event Type:</label>
+      <select id="eventType" onchange="showFee()" required>
+        <option value="">--Choose--</option>
+        <option value="music">Music Night - $20</option>
+        <option value="run">Charity Run - $10</option>
+        <option value="food">Food Festival - $15</option>
+      </select>
+      <div id="feeDisplay"></div>
+
+      <label for="message">Message:</label>
+      <textarea id="message" placeholder="Any comments..."></textarea>
+
+      <label for="phone">Phone Number:</label>
+      <input type="text" id="phone" placeholder="10-digit number" onblur="validatePhone()">
+      <div id="phoneError"></div>
+
+      <label for="feedback">Feedback:</label>
+      <textarea id="feedback" placeholder="Your feedback" onkeyup="countChars()"></textarea>
+      <div class="charCount" id="charCount">Characters: 0</div>
+
+      <img id="eventImage" src="images/event1.jpg" ondblclick="enlargeImage()" alt="Event" title="Double-click to enlarge" />
+
+      <button type="button" onclick="showConfirmation()">Submit</button>
+      <output id="confirmation"></output>
+    </form>
+  </section>
+  <section id="geolocation">
+  <h2>Find Nearby Events</h2>
+  <button onclick="findNearbyEvents()">Find Nearby Events</button>
+  <p id="locationResult" style="margin-top: 10px; color: blue; font-weight: bold;"></p>
+</section>
+
+  <section id="preferences">
+  <h2>Choose Your Preferred Event Type</h2>
+
+  <label for="eventType">Event Type:</label>
+  <select id="eventType">
+    <option value="">-- Select an Event --</option>
+    <option value="music">Music Festival</option>
+    <option value="sports">Sports Meet</option>
+    <option value="workshop">Workshop</option>
+    <option value="charity">Charity Run</option>
+  </select>
+
+  <button onclick="clearPreferences()">Clear Preferences</button>
+
+  <p id="statusMessage" style="color: green; font-weight: bold; margin-top: 10px;"></p>
+</section>
+
+  <!-- Footer -->
+  <footer>
+    &copy; 2025 City Council | Community Event Portal
+  </footer>
+
+  <!-- JavaScript -->
+  <script>
+    function showFee() {
+      const eventType = document.getElementById("eventType");
+      const feeText = eventType.options[eventType.selectedIndex].text;
+      document.getElementById("feeDisplay").textContent = "Selected Fee: " + feeText.split("-")[1].trim();
+    }
+
+    function countChars() {
+      const text = document.getElementById("feedback").value;
+      document.getElementById("charCount").textContent = "Characters: " + text.length;
+    }
+
+    function validatePhone() {
+      const phone = document.getElementById("phone").value;
+      const error = document.getElementById("phoneError");
+      const regex = /^\d{10}$/;
+      error.textContent = regex.test(phone) ? "" : "Please enter a valid 10-digit phone number.";
+    }
+
+    function enlargeImage() {
+      const image = document.getElementById("eventImage");
+      image.style.width = image.style.width === "400px" ? "200px" : "400px";
+    }
+
+    function showConfirmation() {
+      document.getElementById("confirmation").textContent = "Thank you! Your registration has been submitted.";
+    }
+  </script>
+  <script>
+  // Show message when video is ready
+  document.getElementById("eventVideo").oncanplay = function () {
+    document.getElementById("videoMessage").textContent = "Video ready to play!";
+  };
+
+  // Warn user if leaving form page
+  window.onbeforeunload = function () {
+    return "Are you sure you want to leave? Your session may be lost.";
+  };
+</script>
+<script>
+  // Save selected event type to localStorage
+  const eventTypeSelect = document.getElementById("eventType");
+  const statusMessage = document.getElementById("statusMessage");
+
+  // Load saved preference on page load
+  window.onload = function () {
+    const savedPreference = localStorage.getItem("preferredEventType");
+    if (savedPreference) {
+      eventTypeSelect.value = savedPreference;
+      statusMessage.textContent = "Loaded your preferred event type!";
+    }
+  };
+
+  // Save to localStorage when changed
+  eventTypeSelect.onchange = function () {
+    localStorage.setItem("preferredEventType", this.value);
+    statusMessage.textContent = "Your preference has been saved!";
+  };
+
+  // Clear both localStorage and sessionStorage
+  function clearPreferences() {
+    localStorage.removeItem("preferredEventType");
+    sessionStorage.clear();
+    eventTypeSelect.value = "";
+    statusMessage.textContent = "Preferences cleared!";
+  }
+</script>
+<script>
+  function findNearbyEvents() {
+    const locationResult = document.getElementById("locationResult");
+
+    if (!navigator.geolocation) {
+      locationResult.textContent = "Geolocation is not supported by your browser.";
+      return;
+    }
+
+    locationResult.textContent = "Locating…";
+
+    const options = {
+      enableHighAccuracy: true,
+      timeout: 10000, // 10 seconds
+      maximumAge: 0
+    };
+
+    navigator.geolocation.getCurrentPosition(success, error, options);
+
+    function success(position) {
+      const latitude = position.coords.latitude;
+      const longitude = position.coords.longitude;
+
+      locationResult.textContent =
+        `Your Location: Latitude ${latitude.toFixed(4)}, Longitude ${longitude.toFixed(4)}.`;
+    }
+
+    function error(err) {
+      switch (err.code) {
+        case err.PERMISSION_DENIED:
+          locationResult.textContent = "Permission denied. Please allow location access.";
+          break;
+        case err.POSITION_UNAVAILABLE:
+          locationResult.textContent = "Location unavailable.";
+          break;
+        case err.TIMEOUT:
+          locationResult.textContent = "Request timed out. Try again.";
+          break;
+        default:
+          locationResult.textContent = "An unknown error occurred.";
+      }
+    }
+  }
+</script>
+
+</body>
+</html>
+
