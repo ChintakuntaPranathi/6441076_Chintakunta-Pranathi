@@ -1,0 +1,13 @@
+/* Header styles */
+h2 {
+    color: teal;
+    text-transform: uppercase;
+    border-bottom: 2px solid teal;
+}
+
+/* Paragraph styles */
+p {
+    color: #333;
+    font-size: 18px;
+    line-height: 1.6;
+}

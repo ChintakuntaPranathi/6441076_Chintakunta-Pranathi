@@ -1,0 +1,56 @@
+/* ==============================
+   Link Styling with Pseudo-classes
+   ============================== */
+   a:link {
+    color: #007BFF;
+    text-decoration: none;
+  }
+  
+  a:visited {
+    color: #5a3e9c;
+  }
+  
+  a:hover {
+    color: #FF5722;
+    text-decoration: underline;
+  }
+  
+  a:active {
+    color: #C2185B;
+  }
+  
+  /* ==============================
+     Unordered List Styling
+     ============================== */
+  ul.custom-list {
+    list-style-type: square;           /* Change bullet shape */
+    list-style-position: inside;       /* Bullets inside the box */
+    padding-left: 20px;
+  }
+  
+  ul.custom-list li {
+    margin-bottom: 10px;
+    padding: 5px;
+  }
+  
+  /* ==============================
+     Navigation Menu Styling
+     ============================== */
+  ul.nav-menu {
+    list-style: none;                  /* Remove bullets */
+    display: flex;
+    gap: 20px;
+    padding: 0;
+  }
+  
+  ul.nav-menu li {
+    padding: 8px 12px;
+    background-color: #f0f0f0;
+    border-radius: 5px;
+  }
+  
+  ul.nav-menu li a {
+    color: #333;
+    text-decoration: none;
+  }
+  

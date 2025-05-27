@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Box Model & Layout Control</title>
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <h2>Event Cards with Spacing & Borders</h2>
+  
+  <div class="eventCard">
+    <h3>Music Festival</h3>
+    <p>Date: 2025-06-15</p>
+    <p>Location: Central Park</p>
+  </div>
+  
+  <div class="eventCard">
+    <h3>Art Expo</h3>
+    <p>Date: 2025-07-01</p>
+    <p>Location: Gallery Hall</p>
+  </div>
+
+  <h2>Form Fields with Outline on Focus</h2>
+
+  <form>
+    <label for="name">Name:</label><br />
+    <input type="text" id="name" name="name" placeholder="Enter your name" /><br />
+
+    <label for="email">Email:</label><br />
+    <input type="email" id="email" name="email" placeholder="Enter your email" /><br />
+
+    <label for="message">Message:</label><br />
+    <textarea id="message" name="message" rows="4" placeholder="Your message"></textarea><br />
+  </form>
+
+  <h2>Visibility Demo: Hidden vs Display None</h2>
+
+  <div class="visibility-demo">
+    <div>
+      <strong>Visible Box</strong><br />
+      This box is fully visible.
+    </div>
+    <div class="hidden-example">
+      <strong>Visibility: hidden</strong><br />
+      This box is invisible but still takes up space.
+    </div>
+    <div class="none-example">
+      <strong>Display: none</strong><br />
+      This box is removed from layout completely.
+    </div>
+  </div>
+
+</body>
+</html>

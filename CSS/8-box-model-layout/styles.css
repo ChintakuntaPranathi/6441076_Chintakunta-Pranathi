@@ -1,0 +1,56 @@
+/* =========================
+   Styling for Event Cards
+   ========================= */
+   .eventCard {
+    border: 2px solid #007BFF;
+    padding: 20px;
+    margin: 15px 0;
+    background-color: #f0f8ff;
+    border-radius: 8px;
+  }
+  
+  /* =========================
+     Highlight form fields on focus with outline
+     ========================= */
+  input[type="text"], input[type="email"], textarea {
+    padding: 8px;
+    margin: 8px 0;
+    border: 1px solid #ccc;
+    outline: none;
+    width: 100%;
+    box-sizing: border-box; /* include padding & border in width */
+    border-radius: 4px;
+    transition: outline-color 0.3s ease;
+  }
+  
+  input[type="text"]:focus,
+  input[type="email"]:focus,
+  textarea:focus {
+    outline: 3px solid #FF5722;
+  }
+  
+  /* =========================
+     Visibility Demo Containers
+     ========================= */
+  .visibility-demo {
+    margin-top: 20px;
+  }
+  
+  .visibility-demo div {
+    padding: 10px;
+    border: 1px solid #999;
+    margin-bottom: 10px;
+  }
+  
+  /* Hidden but occupies space */
+  .hidden-example {
+    visibility: hidden;
+    background-color: #ffdede;
+  }
+  
+  /* Removed completely */
+  .none-example {
+    display: none;
+    background-color: #d6ffd6;
+  }
+  

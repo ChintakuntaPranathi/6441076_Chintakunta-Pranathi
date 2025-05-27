@@ -1,0 +1,36 @@
+/* =============================
+   Body Background with Fallback
+   ============================= */
+   body {
+    background-color: #e0f7fa; /* Fallback background color (HEX) */
+    background-image: url('city.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    color: rgba(0, 0, 0, 0.8); /* Text color using RGBA */
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* =============================
+     Section Headers with Gradient
+     ============================= */
+  section h2 {
+    background: linear-gradient(to right, #007BFF, #00C6FF); /* Blue gradient */
+    color: white;
+    padding: 15px;
+    text-align: center;
+    margin-top: 40px;
+  }
+  
+  /* =============================
+     Content Box Styling
+     ============================= */
+  .content-box {
+    background-color: rgba(255, 255, 255, 0.85); /* Semi-transparent white */
+    padding: 20px;
+    margin: 30px;
+    border-radius: 10px;
+  }
+  

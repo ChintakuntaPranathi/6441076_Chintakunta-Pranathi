@@ -1,0 +1,11 @@
+/* Styling the news article section with multi-column layout */
+.news-article {
+    column-count: 2;               /* Number of columns */
+    column-gap: 30px;              /* Space between columns */
+    column-rule: 1px solid gray;   /* Vertical line between columns */
+    padding: 15px;
+    font-family: Georgia, serif;
+    font-size: 16px;
+    line-height: 1.6;
+  }
+  

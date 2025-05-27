@@ -1,0 +1,85 @@
+/* Basic reset and body styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    max-width: 1200px;
+    margin: auto;
+  }
+  
+  /* Navigation styles */
+  nav {
+    display: flex;
+    gap: 20px;
+    background-color: #007BFF;
+    padding: 10px 20px;
+    border-radius: 8px;
+  }
+  
+  nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.1rem;
+    padding: 8px 12px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+  }
+  
+  nav a:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Main content */
+  main {
+    margin-top: 20px;
+  }
+  
+  main img {
+    max-width: 50vw; /* flexible width based on viewport */
+    height: auto;
+    border-radius: 8px;
+  }
+  
+  /* Text styling */
+  h1 {
+    font-size: 3vw; /* scalable font */
+    margin-bottom: 10px;
+  }
+  
+  p {
+    font-size: 1.5vw;
+    line-height: 1.5;
+  }
+  
+  /* Media query for screens smaller than 768px */
+  @media (max-width: 768px) {
+    
+    nav {
+      flex-direction: column;  /* stack vertically */
+      gap: 10px;
+    }
+  
+    nav a {
+      font-size: 5vw;  /* bigger tap targets on small screens */
+      padding: 12px;
+    }
+  
+    main img {
+      max-width: 90vw; /* smaller images on small screens */
+    }
+  
+    h1 {
+      font-size: 8vw;  /* larger heading text */
+    }
+  
+    p {
+      font-size: 4vw;  /* readable smaller text */
+    }
+  }
+  
