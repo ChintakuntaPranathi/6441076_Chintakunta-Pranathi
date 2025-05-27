@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Event Registration Debug Test</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+    .message {
+      margin-top: 10px;
+      padding: 8px;
+      border-radius: 4px;
+    }
+    .success {
+      background-color: #d4edda;
+      color: #155724;
+    }
+    .error {
+      background-color: #f8d7da;
+      color: #721c24;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Register for an Event</h1>
+  <form id="registrationForm">
+    <label for="name">Name:</label><br/>
+    <input type="text" id="name" name="name" required /><br/><br/>
+
+    <label for="email">Email:</label><br/>
+    <input type="email" id="email" name="email" required /><br/><br/>
+
+    <label for="event">Select Event:</label><br/>
+    <select id="event" name="ev
